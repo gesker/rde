@@ -1,6 +1,7 @@
-name: Tests
+name: Clippy
 
-on: [push, pull_request]
+# on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -15,5 +16,4 @@ jobs:
           components: clippy, rustfmt
           override: true
       - name: Run clippy
-        run: make test
-  
+        run: make lint
