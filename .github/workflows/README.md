@@ -1,3 +1,0 @@
-# GitHub Workflows
-
-Placeholder directory
