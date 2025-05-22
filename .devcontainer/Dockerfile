@@ -1,24 +1,24 @@
-# Use the latest Microsoft devcontainer image for Rust
+# Use the official Rust slim image based on Debian Bookworm with Rust 1.87
+# FROM rust:1.87-slim-bookworm
 FROM mcr.microsoft.com/devcontainers/rust:latest
 
-# Install specified dependencies
-RUN apt-get update && apt-get install -y \
+# Install additional dependencies for development
+RUN sudo apt-get update && sudo apt-get install -y \
     build-essential \
     curl \
     git \
     pkg-config \
     libssl-dev \
+    python3-lldb \
     && rm -rf /var/lib/apt/lists/*
 
-# Install additional Rust tools (optional, customizable)
+# Install rustup components and tools
+RUN rustup component add cargo clippy rust-analyzer rust-docs rust-src rust-std rustc rustfmt \
+    && rustup update
+
+# Install common Rust tools
 RUN cargo install cargo-watch
 
 # Set the working directory
 WORKDIR /workspaces
 
-# Ensure the codespace user has correct permissions
-USER vscode
-RUN chown -R vscode:vscode /workspaces
-
-# Set the default command
-CMD ["bash"]
