@@ -17,8 +17,8 @@ RUN cargo install cargo-watch
 WORKDIR /workspaces
 
 # Ensure the codespace user has correct permissions
-USER codespace
-RUN chown -R codespace:codespace /workspaces
+USER vscode
+RUN chown -R vscode:vscode /workspaces
 
 # Set the default command
 CMD ["bash"]

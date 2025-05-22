@@ -1,19 +1,9 @@
 {
-  "name": "Rust Development (Microsoft Devcontainer)",
-  // "image": "mcr.microsoft.com/devcontainers/rust:latest",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "name": "Rust Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/rust:latest",
   "customizations": {
     "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile": "bash",
-        "lldb.executable": "/usr/bin/lldb",
-        "rust-analyzer.check.command": "clippy"
-      },
       "extensions": [
-        "rust-lang.rust-analyzer",
         "fill-labs.dependi",
         "GitHub.codespaces",
         "GitHub.copilot-chat",
@@ -34,8 +24,7 @@
       ]
     }
   },
-  "postCreateCommand": "rustc --version && cargo --version && lldb --version",
-  "remoteUser": "codespace",
-  "capAdd": ["SYS_PTRACE"],
-  "securityOpt": ["seccomp=unconfined"]
+  "runArgs": ["--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+  "postCreateCommand": "rustup update && cargo --version && rustc --version",
+  "remoteUser": "vscode"
 }
