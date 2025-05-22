@@ -31,11 +31,7 @@
         "rust-lang.rust-analyzer",
         "GitHub.copilot-nightly",
         "GitHub.copilot-labs",
-
-        // Try to deal with codespaces error related to this extension
-        // See README.md for more details
         "vadimcn.vscode-lldb",
-        // These extensions seem to be running by default in codespaces
         "GitHub.codespaces",
         "GitHub.vscode-pull-request-github",
         "vscode.debug-auto-launch",
@@ -45,12 +41,11 @@
         "vscode.github-authentication",
         "vscode.github",
         "vscode.merge-conflict",
-        // Playing with these extensions
         "fill-labs.dependi",
         "Gruntfuggly.todo-tree",
-        "serayuzgur.crates",
         "tamasfe.even-better-toml",
-        "usernamehw.errorlens"
+        "usernamehw.errorlens",
+        "github.vscode-github-actions"
       ]
     }
   },
